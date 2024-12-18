@@ -6,7 +6,7 @@ export class NewAccount{
         cy.get('#type').select(sv)
     }
     accId(id){
-        cy.get('#fromAccountId').select(id)
+        cy.get('#fromAccountId').select(id, {force:true})
     
     }
     openAccButton(){

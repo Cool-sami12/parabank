@@ -12,9 +12,9 @@ const transfer = new TransferPage()
 const loan = new LoanPage()
 const logout = new Logout()
 
-//   it('passes', () => {
-//     cy.visit('https://parabank.parasoft.com/parabank/index.htm')
-//   })
+  it('passes', () => {
+    cy.visit('https://parabank.parasoft.com/parabank/index.htm')
+  })
   it('Register', () => {
     cy.visit('https://parabank.parasoft.com/parabank/index.htm')
     registrationPage.redirect()
@@ -53,7 +53,7 @@ const logout = new Logout()
     loginPage.loginButton()
 
     newAccount.linkAcc()
-    newAccount.accId('20226')
+    newAccount.accId(0)
     newAccount.selectAccType('SAVINGS')
     newAccount.openAccButton()
 
@@ -66,8 +66,8 @@ const logout = new Logout()
 
     transfer.TransferPagelink()
     transfer.inputAmount('3452')
-    transfer.fromAccId('21780')
-    transfer.toAccId('21891')
+    transfer.fromAccId(0)
+    transfer.toAccId(1)
     transfer.submit()
 
   })
@@ -79,12 +79,12 @@ const logout = new Logout()
 
     loan.LoanPagelink()
     loan.loanAmount('3400')
-    loan.fromAccId('22113')
+    loan.fromAccId(0)
     loan.downPayment('23')
     loan.submitRequest()
 
   })
-  it('endtoend ',() => {
+   it('endtoend ',() => {
     cy.visit('https://parabank.parasoft.com/parabank/index.htm')
     registrationPage.redirect()
     registrationPage.inputFirstName('test')
@@ -107,20 +107,20 @@ const logout = new Logout()
     
     cy.wait(1000)
     newAccount.linkAcc()
-    newAccount.accId('20226')
+    newAccount.accId(0)
     newAccount.selectAccType('SAVINGS')
     newAccount.openAccButton()
     cy.wait(1000)
     transfer.TransferPagelink()
     transfer.inputAmount('3452')
-    transfer.fromAccId('21780')
-    transfer.toAccId('21891')
+    transfer.fromAccId(0)
+    transfer.toAccId(1)
     transfer.submit()
 
     cy.wait(1000)
     loan.LoanPagelink()
     loan.loanAmount('3400')
-    loan.fromAccId('22113')
+    loan.fromAccId(0)
     loan.downPayment('23')
     loan.submitRequest()
 
