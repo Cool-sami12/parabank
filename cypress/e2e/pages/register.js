@@ -2,7 +2,11 @@ export class RegistrationPage{
     redirect (){
         cy.get('#loginPanel > :nth-child(3) > a').click()
     }
-
+    titlecheck(){
+        cy.get('.title').should('be.visible');
+        cy.get('#rightPanel > p').contains('If you have an account with us you can sign-up for free instant online access. You will have to provide some personal information.')
+        cy.get('#rightPanel > p').should('be.visible');
+    }
     inputFirstName(fn){
         cy.get(`input[name='customer.firstName']`).type(fn)
     }
@@ -41,4 +45,5 @@ export class RegistrationPage{
     registerButton(){
         cy.get(`input[value='Register']`).click()
     }
+
 }
