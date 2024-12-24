@@ -12,11 +12,16 @@ const transfer = new TransferPage()
 const loan = new LoanPage()
 const logout = new Logout()
 
-  it('passes', () => {
+beforeEach(function() {
     cy.visit('https://parabank.parasoft.com/parabank/index.htm')
-  })
+    
+}),
+describe('all tests', () => {
+  // it('passes', () => {
+  //   cy.visit('https://parabank.parasoft.com/parabank/index.htm')
+  // }),
   it('Register', () => {
-    cy.visit('https://parabank.parasoft.com/parabank/index.htm')
+    //cy.visit('https://parabank.parasoft.com/parabank/index.htm')
     registrationPage.redirect()
     registrationPage.titlecheck()
     registrationPage.inputFirstName('test')
@@ -31,25 +36,25 @@ const logout = new Logout()
     registrationPage.inputPassword('Password')
     registrationPage.inputConfirmPassword('Password')
     registrationPage.registerButton()
-  })
+  }),
 
   it('login with valid details', ()=>{
-    cy.visit('https://parabank.parasoft.com/parabank/index.htm')
+    //cy.visit('https://parabank.parasoft.com/parabank/index.htm')
     loginPage.inputUsername('beantest')
     loginPage.inputPassword('password')
     loginPage.loginButton()
 
-   })
+   }),
   it('login with invalid details', ()=>{
-    cy.visit('https://parabank.parasoft.com/parabank/index.htm')
+    //cy.visit('https://parabank.parasoft.com/parabank/index.htm')
     loginPage.inputUsername('beatest')
     loginPage.inputPassword('pasword')
     loginPage.loginButton()
     cy.get('#rightPanel > p').should('be.visible')
 
- })
+ }),
   it('create a new account ',()=>{
-    cy.visit('https://parabank.parasoft.com/parabank/index.htm')
+    //cy.visit('https://parabank.parasoft.com/parabank/index.htm')
     loginPage.inputUsername('beantest')
     loginPage.inputPassword('Password')
     loginPage.loginButton()
@@ -62,9 +67,9 @@ const logout = new Logout()
     cy.get('#openAccountResult > :nth-child(2)').should('be.visible')
     cy.get('#openAccountResult > :nth-child(3)').should('be.visible')
 
-  })
+  }),
   it('transfer',()=>{
-    cy.visit('https://parabank.parasoft.com/parabank/index.htm')
+    //cy.visit('https://parabank.parasoft.com/parabank/index.htm')
     loginPage.inputUsername('beantest')
     loginPage.inputPassword('Password')
     loginPage.loginButton()
@@ -78,9 +83,9 @@ const logout = new Logout()
     cy.get('#showResult > :nth-child(2)').should('be.visible')
     cy.get('#showResult > :nth-child(3)').should('be.visible')
 
-  })
+  }),
     it('loan',()=>{
-    cy.visit('https://parabank.parasoft.com/parabank/index.htm')
+    //cy.visit('https://parabank.parasoft.com/parabank/index.htm')
     loginPage.inputUsername('beantest')
     loginPage.inputPassword('Password')
     loginPage.loginButton()
@@ -99,9 +104,9 @@ const logout = new Logout()
     cy.get('#loanStatus').should('be.visible')
     cy.get('#loanRequestDenied > .error').should('be.visible')
 
-  })
+  }),
    it('endtoend ',() => {
-    cy.visit('https://parabank.parasoft.com/parabank/index.htm')
+    //cy.visit('https://parabank.parasoft.com/parabank/index.htm')
     registrationPage.redirect()
     registrationPage.inputFirstName('test')
     registrationPage.inputLastName('beans')
@@ -158,5 +163,4 @@ const logout = new Logout()
 
   })
   
-
-  
+})
